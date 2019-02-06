@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@dnd-system/dnd-libs": [
+        "dist/dnd-system/dnd-libs"
+      ],
+      "@dnd-system/dnd-libs/*": [
+        "dist/dnd-system/dnd-libs/*"
+      ]
+    }
   }
 }

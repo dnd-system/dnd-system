@@ -129,6 +129,41 @@
           }
         }
       }
+    },
+    "@dnd-system/dnd-libs": {
+      "root": "projects/dnd-system/dnd-libs",
+      "sourceRoot": "projects/dnd-system/dnd-libs/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/dnd-system/dnd-libs/tsconfig.lib.json",
+            "project": "projects/dnd-system/dnd-libs/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dnd-system/dnd-libs/src/test.ts",
+            "tsConfig": "projects/dnd-system/dnd-libs/tsconfig.spec.json",
+            "karmaConfig": "projects/dnd-system/dnd-libs/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dnd-system/dnd-libs/tsconfig.lib.json",
+              "projects/dnd-system/dnd-libs/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "dnd-system"
