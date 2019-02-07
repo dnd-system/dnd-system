@@ -6,7 +6,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material';
 
 export interface OptionName {
   name: string;
-  id: string;
+  value: string;
 }
 
 
@@ -17,7 +17,7 @@ export interface OptionName {
   styleUrls: ['./dnd-mat-autocomplete-generator.component.css']
 })
 export class DndMatAutocompleteGeneratorComponent implements OnInit {
-  @Input('clientsListToOptions') new_options: any;
+  @Input('optionsArray') new_options: any;
   @Output() returnedValue = new EventEmitter<string>();
 
   myControl = new FormControl();
@@ -46,9 +46,10 @@ export class DndMatAutocompleteGeneratorComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    if (this.new_options == undefined){
+      throw new Error ("Wrong data in 'optionsArray' variable in '<lib-dnd-mat-autocomplete-generator [optionsArray]='...'></lib-dnd-mat-autocomplete-generator>'.")
+    }
     // filtrowanie:
-    console.log(this.new_options)
     this.options = this.new_options;
     console.log(this.options);
       this.filteredOptions = this.myControl.valueChanges
