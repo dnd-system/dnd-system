@@ -10,7 +10,6 @@ export interface OptionName {
 }
 
 
-
 @Component({
   selector: 'lib-dnd-mat-autocomplete-generator',
   templateUrl: './dnd-mat-autocomplete-generator.component.html',
@@ -18,6 +17,9 @@ export interface OptionName {
 })
 export class DndMatAutocompleteGeneratorComponent implements OnInit {
   @Input('optionsArray') new_options: any;
+  @Input('placeholder') placeholder: string;
+  @Input('consoleLog') consoleLog: boolean;
+  @Input('formControl') formControl: string;
   @Output() returnedValue = new EventEmitter<string>();
 
   myControl = new FormControl();
@@ -27,7 +29,11 @@ export class DndMatAutocompleteGeneratorComponent implements OnInit {
   groups = new Array;
 
   constructor(
-  ) { }
+  ) {
+    if (!this.consoleLog) this.consoleLog = false;
+    if (!this.placeholder) this.placeholder = "Autocomplete Placeholder";
+    if (!this.formControl) this.formControl = "Autocomplete Placeholder";
+  }
 
 
   displayFn(OptionName?: OptionName): string | undefined {
@@ -39,10 +45,16 @@ export class DndMatAutocompleteGeneratorComponent implements OnInit {
     return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
 
+  console_log(variable: any) {
+    if (this.consoleLog === true) {
+      console.log(variable);
+    }
+  }
 
   onSelectionChanged(event: MatAutocompleteSelectedEvent) {
     this.returnedValue.emit(event.option.value);
-    console.log(event.option.value);
+    this.console_log(event.option.value);
+
   }
 
   ngOnInit() {
@@ -51,7 +63,7 @@ export class DndMatAutocompleteGeneratorComponent implements OnInit {
     }
     // filtrowanie:
     this.options = this.new_options;
-    console.log(this.options);
+    this.console_log(this.options);
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith<string | OptionName>(''),

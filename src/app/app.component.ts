@@ -10,8 +10,9 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent {
-  title = 'dnd-system';
 
+  
+  inputName = "Start typing"
   options = [
     { name: 'Mary', value: 'value1' },
     { name: 'Shelley', value: 'value2' },
