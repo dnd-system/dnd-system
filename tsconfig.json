@@ -24,6 +24,32 @@
       ],
       "@dnd-system/dnd-libs/*": [
         "dist/dnd-system/dnd-libs/*"
+      ],
+      "@dnd-system/core": [
+        "dist/dnd-system/core"
+      ],
+      "@dnd-system/core/*": [
+        "dist/dnd-system/core/*"
+      ],
+      "@dnd/core": [
+        "dist/dnd/core",
+        "dist/dnd/core"
+      ],
+      "@dnd/core/*": [
+        "dist/dnd/core/*",
+        "dist/dnd/core/*"
+      ],
+      "@cnc-systemy/core": [
+        "dist/cnc-systemy/core"
+      ],
+      "@cnc-systemy/core/*": [
+        "dist/cnc-systemy/core/*"
+      ],
+      "@dnd-system/firestore": [
+        "dist/dnd-system/firestore"
+      ],
+      "@dnd-system/firestore/*": [
+        "dist/dnd-system/firestore/*"
       ]
     }
   }
