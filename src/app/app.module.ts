@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularMaterialModule } from './modules/AngularMaterialModules.module';
 import { DndMatAutocompleteGeneratorComponent } from 'projects/dnd-system/dnd-libs/src/lib/dnd-material/dnd-mat-autocomplete-generator/dnd-mat-autocomplete-generator.component';
+import { DndMaterialModule } from 'projects/dnd-system/dnd-libs/src/lib/dnd-material/dnd-material.module';
 
 
 
@@ -19,10 +19,7 @@ import { DndMatAutocompleteGeneratorComponent } from 'projects/dnd-system/dnd-li
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AngularMaterialModule,
+    DndMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
