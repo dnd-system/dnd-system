@@ -27,7 +27,7 @@ export class DndMatAutocompleteGeneratorComponent implements OnInit {
   groups = new Array;
 
   constructor(
-  ) {}
+  ) { }
 
 
   displayFn(OptionName?: OptionName): string | undefined {
@@ -46,19 +46,19 @@ export class DndMatAutocompleteGeneratorComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.new_options == undefined){
-      throw new Error ("Wrong data in 'optionsArray' variable in '<lib-dnd-mat-autocomplete-generator [optionsArray]='...'></lib-dnd-mat-autocomplete-generator>'.")
+    if (this.new_options == undefined) {
+      throw new Error("Wrong data in 'optionsArray' variable in '<lib-dnd-mat-autocomplete-generator [optionsArray]='...'></lib-dnd-mat-autocomplete-generator>'.")
     }
     // filtrowanie:
     this.options = this.new_options;
     console.log(this.options);
-      this.filteredOptions = this.myControl.valueChanges
-        .pipe(
-          startWith<string | OptionName>(''),
-          map(value => typeof value === 'string' ? value : value.name),
-          map(name => name ? this._filter(name) : this.options.slice())
-        );
-    }
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith<string | OptionName>(''),
+        map(value => typeof value === 'string' ? value : value.name),
+        map(name => name ? this._filter(name) : this.options.slice())
+      );
+  }
 
 }
 
