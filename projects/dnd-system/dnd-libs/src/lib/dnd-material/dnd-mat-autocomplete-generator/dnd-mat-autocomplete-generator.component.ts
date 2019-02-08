@@ -16,10 +16,12 @@ export interface OptionName {
   styleUrls: ['./dnd-mat-autocomplete-generator.component.css']
 })
 export class DndMatAutocompleteGeneratorComponent implements OnInit {
-  @Input('optionsArray') new_options: any;
+  // tslint:disable-next-line:no-input-rename
+  @Input('optionsArray') optionsArray: any;
+  // tslint:disable-next-line:no-input-rename
   @Input('placeholder') placeholder: string;
+  // tslint:disable-next-line:no-input-rename
   @Input('consoleLog') consoleLog: boolean;
-  @Input('formControl') formControl: string;
   @Output() returnedValue = new EventEmitter<string>();
 
   myControl = new FormControl();
@@ -30,12 +32,12 @@ export class DndMatAutocompleteGeneratorComponent implements OnInit {
 
   constructor(
   ) {
-    if (!this.consoleLog) this.consoleLog = false;
-    if (!this.placeholder) this.placeholder = "Autocomplete Placeholder";
-    if (!this.formControl) this.formControl = "Autocomplete Placeholder";
+    if (!this.consoleLog) { this.consoleLog = false; }
+    if (!this.placeholder) { this.placeholder = 'Autocomplete Placeholder'; }
   }
 
 
+  // tslint:disable-next-line:no-shadowed-variable
   displayFn(OptionName?: OptionName): string | undefined {
     return OptionName ? OptionName.name : undefined;
   }
@@ -58,11 +60,12 @@ export class DndMatAutocompleteGeneratorComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.new_options == undefined) {
-      throw new Error("Wrong data in 'optionsArray' variable in '<lib-dnd-mat-autocomplete-generator [optionsArray]='...'></lib-dnd-mat-autocomplete-generator>'.")
+    if (this.optionsArray === undefined) {
+      // tslint:disable-next-line:max-line-length
+      throw new Error('Wrong data in \'optionsArray\' variable in \'<lib-dnd-mat-autocomplete-generator [optionsArray]=\'...\'></lib-dnd-mat-autocomplete-generator>\'.');
     }
     // filtrowanie:
-    this.options = this.new_options;
+    this.options = this.optionsArray;
     this.console_log(this.options);
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
