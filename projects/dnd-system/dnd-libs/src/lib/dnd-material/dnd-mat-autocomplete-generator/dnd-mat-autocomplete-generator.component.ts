@@ -9,7 +9,6 @@ export interface OptionName {
   value: string;
 }
 
-
 @Component({
   selector: 'lib-dnd-mat-autocomplete-generator',
   templateUrl: './dnd-mat-autocomplete-generator.component.html',
@@ -56,7 +55,6 @@ export class DndMatAutocompleteGeneratorComponent implements OnInit {
   onSelectionChanged(event: MatAutocompleteSelectedEvent) {
     this.returnedValue.emit(event.option.value);
     this.console_log(event.option.value);
-
   }
 
   ngOnInit() {
